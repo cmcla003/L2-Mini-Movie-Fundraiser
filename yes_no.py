@@ -23,7 +23,7 @@ def yes_no(question):
 # loop for testing 
 valid = False 
 while not valid: 
-  want_instructions = yes_no("Do you want to read the instructions?")
+  want_instructions = yes_no("Do you want to read the instructions? ")
   if want_instructions == "yes":
     print("Instructions go here")
   else:
