@@ -1,27 +1,18 @@
+def calc_ticket_price(var_age):
+   if age < 16:
+     price = 7.5
+   elif age < 65:
+     price = 10.5
+   else:
+     price = 6.5
+   return price
+
+  
 profit = 0
+while True: 
+  age=int(input("Age: "))
 
-name = ""
-while name != "xxx":
-    name = input("Name: ") # replace with name/ not_blank function
+  ticket_price = calc_ticket_price(age)
+  print("{} : ${:.2f}". format(age, ticket_price))
 
-     # exit code loop
-    if name == "xxx":
-         break
-
-    age = int(input("Age: "))
-
-    if age < 16:
-        ticket_price = 7.5
-
-    elif age < 65:
-        ticket_price = 10.5
-
-    else:
-        ticket_price = 6.5
-
-    profit_made = ticket_price - 5
-    profit += profit_made
-
-    print("{} : ${:.2f}". format(name, ticket_price))
-
-print("Profit made from tickets: ${:.2f}".format(profit))
+  print("Profit made from tickets: ${:.2f}".format(profit))

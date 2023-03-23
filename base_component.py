@@ -1,22 +1,4 @@
 # Function goes here
-# sting check indexes lists to asses input and tailor error message 
-def string_check(question, num_letter, valid_list):
-
-  error = "Please choose {} or {} ".format(valid_list[0],valid_list[1])
-  if num_letter == 1:
-    version = 1
-  else: 
-    version = 2
-  
-  while True:
-    # Ask user if they have played before
-    response = input(question).lower().strip()
-    for item in valid_list: 
-          if response == item[:version] or response == item:
-            return item
-    print(error)
-
-# assesses input is not blank 
 def not_blank(question):
     valid = False
     while not valid:
@@ -26,6 +8,41 @@ def not_blank(question):
             return response
         else:
             print("This can't be blank please enter a name")
+def number_check (question,low_num,high_num):
+    error = "Please enter a whole number between {} and {} ".format(low_num, high_num)
+
+    valid = False
+    while not valid:
+
+        try:
+            response = int(input(question))
+
+            if low_num <= response <= high_num:
+                return response
+            else:
+                print(error)
+
+        except ValueError:
+            print(error)
+
+
+def string_check(question, num_letter, valid_list):
+  error = "Please choose {} or {} ".format(valid_list[0],valid_list[1])
+  if num_letter == 1:
+    version = 1
+  else: 
+    version = 2
+  while True:
+    # Ask user if they have played before
+    response = input(question).lower().strip()
+    for item in valid_list: 
+          if response == item[:version] or response == item:
+            return item
+    print(error)
+
+# assesses input is not blank 
+def instructions ():
+  print("Instructions go here.... to be completed ")
 
 # main routine goes here
 # initalise variables 
@@ -33,6 +50,7 @@ def not_blank(question):
 # initalise variables
 
 # Lists and initialise variable 
+
 yes_no = ["yes","no"]
 payment = ["cash","credit"]
 
@@ -42,10 +60,11 @@ MAX_TICKETS = 5
 
 # *** Main routine ***
 # ask user if want instructions 
-instructions = string_check("Please enter yes or no: ",1, yes_no)
+want_instructions = string_check("Please enter yes or no: ",1, yes_no)
 if want_instructions == "yes":
   # print detailed instructions at a later date
-  print("Instructions go here")
+  instructions()
+  
 
 
 while name != "xxx" and count < MAX_TICKETS:
@@ -59,7 +78,7 @@ while name != "xxx" and count < MAX_TICKETS:
     # get details
     name = not_blank("Name: ")
     count +=1
-    age = int(input("Age: "))
+    age = number_check(input("Age: ",12, 120))
 
     # calculate ticket price based on age
     if age < 16:

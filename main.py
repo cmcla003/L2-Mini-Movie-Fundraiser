@@ -1,1 +1,1 @@
-import string_checker
+import ticket_price
