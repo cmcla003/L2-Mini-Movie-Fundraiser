@@ -8,19 +8,16 @@ def not_blank(question):
             return response
         else:
             print("This can't be blank please enter a name")
-def number_check(question,low_num,high_num):
-    error = "Please enter a whole number between {} and {} ".format(low_num, high_num)
+def number_check(question):
+    error = "Please enter a whole number"
 
     valid = False
     while not valid:
 
         try:
             response = int(input(question))
-
-            if low_num <= response <= high_num:
-                return response
-            else:
-                print(error)
+            return response
+            valid = True
 
         except ValueError:
             print(error)
@@ -53,6 +50,7 @@ def instructions ():
 
 
 # Lists and initialise variable 
+# initalis lists and variables
 yes_no = ["yes","no"]
 payment = ["cash","credit"]
 name = ""
@@ -76,12 +74,29 @@ while name != "xxx" and count < MAX_TICKETS:
 
   # get user details check age and calculate ticket price
   name = not_blank("Name: ")
-  count +=1
-  age = number_check("Age: ",12, 120)
-  ticket_cost= calc_ticket_price(age)
 
+  age = number_check("Age: ")
+  if age >=12 and age <=120:
+    pass
+  elif age < 12:
+    print("Sorry you are too young for this movie")
+    continue
+  else: 
+    print("Looks like a typo, please try again")
+    continue  
+
+    
+  # calculate ticket price based on age
+  ticket_cost= calc_ticket_price(age)
+  count += 1
   # print for testing 
   print("Name: {} Age: {} Ticket price ${}".format(name,age,ticket_cost))
+
+  # payment method
+  payment_method = string_check("Choose a payment method, cash or credit: ", 2 , payment)
+  
+  # print for testing
+  print("You have chosen to pay {}".format(payment_method))
   
   #if ALL ticekts sold
   if count == MAX_TICKETS:
