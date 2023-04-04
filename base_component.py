@@ -8,6 +8,7 @@ def not_blank(question):
             return response
         else:
             print("This can't be blank please enter a name")
+
 def number_check(question):
     error = "Please enter a whole number"
 

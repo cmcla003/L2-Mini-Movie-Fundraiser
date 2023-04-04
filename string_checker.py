@@ -24,5 +24,5 @@ while not valid:
   instructions = string_check("Please enter yes or no: ",1, yes_no)
   print(instructions)
   
-  #payment_method = string_check("Choose a payment method, cash or credit: ", 2 , payment)
-  #print(payment_method)
+  payment_method = string_check("Choose a payment method, cash or credit: ", 2 , payment)
+  print(payment_method)

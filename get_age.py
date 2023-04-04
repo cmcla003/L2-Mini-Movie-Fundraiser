@@ -17,7 +17,7 @@ while not valid:
   age = int_check("Age: ")
   if age >=12 and age <=120:
     print("Age: {} test ".format(age))
-  elif age <120 12:
+  elif age <12:
     print("Sorry you are too young for this movie")
 
   else: 
