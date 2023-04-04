@@ -1,1 +1,1 @@
-import base_component
+import string_checker
