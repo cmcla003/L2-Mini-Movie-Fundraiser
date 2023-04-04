@@ -31,6 +31,7 @@ def calc_ticket_price(var_age):
    else:
      price = 6.5
    return price
+  
 def string_check(question, num_letter, valid_list):
   error = "Please choose {} or {} ".format(valid_list[0],valid_list[1])
   if num_letter == 1:
@@ -49,9 +50,7 @@ def string_check(question, num_letter, valid_list):
 def instructions ():
   print("Instructions go here.... to be completed ")
 
-
-# Lists and initialise variable 
-# initalis lists and variables
+# Lists and initialise variables
 yes_no = ["yes","no"]
 payment = ["cash","credit"]
 name = ""
@@ -72,10 +71,8 @@ while name != "xxx" and count < MAX_TICKETS:
   # one place left
   else:
       print("***You have ONE place left***")
-
   # get user details check age and calculate ticket price
   name = not_blank("Name: ")
-
   age = number_check("Age: ")
   if age >=12 and age <=120:
     pass
@@ -85,14 +82,11 @@ while name != "xxx" and count < MAX_TICKETS:
   else: 
     print("Looks like a typo, please try again")
     continue  
-
-    
   # calculate ticket price based on age
   ticket_cost= calc_ticket_price(age)
   count += 1
   # print for testing 
   print("Name: {} Age: {} Ticket price ${}".format(name,age,ticket_cost))
-
   # payment method
   payment_method = string_check("Choose a payment method, cash or credit: ", 2 , payment)
   
