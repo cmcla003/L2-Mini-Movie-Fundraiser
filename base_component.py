@@ -1,4 +1,5 @@
 import pandas 
+from random import choice
 
 # Function goes here
 def not_blank(question):
@@ -135,6 +136,14 @@ print("--- Ticket Sales & profit ---")
 print("Total Ticket Sales: ${:.2f}".format(total))
 print("Total Profit: ${:.2f}".format(profit))
 print()
+
+# lucky ticket raffle select random name from list 
+winner = choice(all_names)
+# index random selection to pull from ticket price list
+locate = all_names.index(winner)
+# output raffle winner 
+print("*** Raffle winner ***")
+print("{} You have won ${:.2f} your ticket is free. ".format(winner,all_ticket_costs[locate]))
 
 #if ALL tickets sold
 if tickets_sold == MAX_TICKETS:
